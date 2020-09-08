@@ -1,0 +1,14 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #000000;
+  background: #FFFFFF;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 890px) {
+  .card {
+    
+  }
+}

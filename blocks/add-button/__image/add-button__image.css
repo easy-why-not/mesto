@@ -1,0 +1,5 @@
+.add-button__image {}
+
+.add-button__image:hover {
+  color: red;
+}
