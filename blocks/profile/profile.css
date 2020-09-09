@@ -9,7 +9,6 @@
 
 @media screen and (max-width: 890px) {
   .profile {
-    max-width: 840px;
     margin: 0 20px 50px;
   }
 }
@@ -20,8 +19,3 @@
   }
 }
 
-@media screen and (max-width: 320px) {
-  .profile{
-  max-width: 282px;
-  }
-}

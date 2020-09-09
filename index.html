@@ -6,11 +6,9 @@
     <title>Mesto</title>
     <link rel="stylesheet" href="./pages/index.css">
 </head>
-<body class="body">
-    <div class="page">
+<body class="page">
         <header class="header">
             <img class="header__logo" src="./image/logo.svg" alt="Логотип Mesto">
-            <div class="header__line"></div>
         </header>
         <main class="content">
           <section class="profile">
@@ -19,55 +17,56 @@
               <div class="profile__text">
                 <div class="profile__block">
                   <h2 class="profile__info-name">Жак-Ив Кусто</h2>
-                  <button class="js-profile__open-popup edit-button"><img class="edit-button__image" src="./image/Edit-Button.svg" alt="Кнопка редактирования"></button>
+                  <button class="profile__open-popup profile__edit-button"></button>
                 </div>
                 <p class="profile__info-text">Исследователь океана</p>
               </div>
 
             </div>
-            <button class="add-button"><img class="add-button__image" src="./image/Vector.svg" alt=" Кнопка добавить"></button>
+            <button class="profile__add-button"></button>
           </section>
           <section class="elements">
             <div class="card">
               <img class="card__image" src="./image/karachaevsk.jpg" alt="Фото Карачаевск">
               <div class="card__item">
                 <h2 class="card__title">Карачаевск</h2>
-                <button class="card__button"><img class="button__like" src="./image/like.svg" alt="Кнопка Понравилось"></button>
+                <button class="card__button">
+                </button>
               </div>
             </div>
             <div class="card">
               <img class="card__image" src="./image/dombai.jpg" alt="Фото Домбай">
               <div class="card__item">
                 <h2 class="card__title">Домбай</h2>
-                <button class="card__button"><img class="button__like" src="./image/like.svg" alt="Кнопка Понравилось"></button>
+                <button class="card__button"></button>
               </div>
             </div>
             <div class="card">
               <img class="card__image" src="./image/elbrus.jpg" alt="Фото Эльбрус">
               <div class="card__item">
                 <h2 class="card__title">Эльбрус</h2>
-                <button class="card__button"><img class="button__like" src="./image/like.svg" alt="Кнопка Понравилось"></button>
+                <button class="card__button"></button>
               </div>
             </div>
             <div class="card">
               <img class="card__image" src="./image/elbrus.jpg" alt="Фото Эльбрус">
               <div class="card__item">
                 <h2 class="card__title">Эльбрус</h2>
-                <button class="card__button"><img class="button__like" src="./image/like.svg" alt="Кнопка Понравилось"></button>
+                <button class="card__button"></button>
               </div>
             </div>
             <div class="card">
               <img class="card__image" src="./image/karachaevsk.jpg" alt="Фото Карачаевск">
               <div class="card__item">
                 <h2 class="card__title">Карачаево-Черкесия</h2>
-                <button class="card__button"><img class="button__like" src="./image/like.svg" alt="Кнопка Понравилось"></button>
+                <button class="card__button"></button>
               </div>
             </div>
             <div class="card">
               <img class="card__image" src="./image/dombai.jpg" alt="Фото Домбай">
               <div class="card__item">
                 <h2 class="card__title">Домбай</h2>
-                <button class="card__button"><img class="button__like" src="./image/like.svg" alt="Кнопка Понравилось"></button>
+                <button class="card__button"></button>
               </div>
             </div>
           </section>
@@ -75,16 +74,17 @@
         <footer class="footer">
           <p class="footer__copyright">&copy;&nbsp;2020 Mesto Russia</p>
         </footer>
+    <div class="popup">
+      <div class="popup__container">
+        <form class="popup__form" name="information">
+          <button class="popup__close"></button>
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <input class="popup__input popup__input_type_name" type="text" placeholder="Имя" name="firstname" value="">
+          <input class="popup__input popup__input_type_career" type="text" placeholder="Работа" name="career" value="">
+          <button class="popup__submit" type="submit">Сохранить</button>
+        </form>
+      </div>
     </div>
-    <section class="popup">
-      <form class="popup__container">
-        <img class="popup__close" src="./image/Close-Icon.png" alt="Закрыть попап">
-        <h2 class="popup__title">Редактировать профиль</h2>
-        <input class="popup__input popup__input_type_name" type="text" placeholder="Имя" name="firstname" value="">
-        <input class="popup__input popup__input_type_career" type="text" placeholder="Работа" name="career" value="">
-        <button class="popup__submit" type="submit">Сохранить</button>
-      </form>
-    </section>
-    <script src="./index.js" defer></script>
+    <script src="./scripts/index.js" defer></script>
 </body>
 </html>
