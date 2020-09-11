@@ -1,9 +1,7 @@
-//Если кто-то будет это читать
-//При открытом попапе нажатие на клавишу “Enter” или кнопку «Сохранить» изменяет на странице информацию о пользователе.
-//Я так не умею - я все облазил, но не нашел как это сделать
+
 
 let popup = document.querySelector('.popup');
-let popupOpenButton = document.querySelector('.profile__open-popup');
+let popupOpenButton = document.querySelector('.profile__edit-button');
 let popupCloseButton = document.querySelector('.popup__close');
 
 let nameInput = document.querySelector('.popup__input_type_name');
