@@ -11,14 +11,18 @@ let profileCareer = document.querySelector('.profile__info-text');
 
 console.log({popup, popupOpenButton, popupCloseButton});
 
-let popupToggle = function () {
-  popup.classList.toggle('popup_is-opened');
+const popupOpen = function () {
   nameInput.value = profileName.textContent;
   jobInput.value = profileCareer.textContent;
+  popup.classList.add('popup_is-opened');
 }
 
-popupOpenButton.addEventListener('click', popupToggle)
-popupCloseButton.addEventListener('click', popupToggle)
+const popupClose = function () {
+  popup.classList.remove('popup_is-opened');
+}
+
+popupOpenButton.addEventListener('click', popupOpen)
+popupCloseButton.addEventListener('click', popupClose)
 
 
 // Находим форму в DOM
