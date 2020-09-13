@@ -34,6 +34,7 @@ function formSubmitHandler (event) {
     event.preventDefault();
     profileName.textContent = nameInput.value;
     profileCareer.textContent = jobInput.value;
+    popupClose();
 }
 
 // Прикрепляем обработчик к форме:
