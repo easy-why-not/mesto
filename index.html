@@ -28,6 +28,7 @@
           <section class="elements">
             <div class="card">
               <img class="card__image" src="./image/karachaevsk.jpg" alt="Фото Карачаевск">
+              <button class="card__del"></button>
               <div class="card__item">
                 <h2 class="card__title">Карачаевск</h2>
                 <button class="card__button">
@@ -36,6 +37,7 @@
             </div>
             <div class="card">
               <img class="card__image" src="./image/dombai.jpg" alt="Фото Домбай">
+              <button class="card__del"></button>
               <div class="card__item">
                 <h2 class="card__title">Домбай</h2>
                 <button class="card__button"></button>
@@ -43,6 +45,7 @@
             </div>
             <div class="card">
               <img class="card__image" src="./image/elbrus.jpg" alt="Фото Эльбрус">
+              <button class="card__del"></button>
               <div class="card__item">
                 <h2 class="card__title">Эльбрус</h2>
                 <button class="card__button"></button>
@@ -50,6 +53,7 @@
             </div>
             <div class="card">
               <img class="card__image" src="./image/elbrus.jpg" alt="Фото Эльбрус">
+              <button class="card__del"></button>
               <div class="card__item">
                 <h2 class="card__title">Эльбрус</h2>
                 <button class="card__button"></button>
@@ -57,6 +61,7 @@
             </div>
             <div class="card">
               <img class="card__image" src="./image/karachaevsk.jpg" alt="Фото Карачаевск">
+              <button class="card__del"></button>
               <div class="card__item">
                 <h2 class="card__title">Карачаево-Черкесия</h2>
                 <button class="card__button"></button>
@@ -64,6 +69,7 @@
             </div>
             <div class="card">
               <img class="card__image" src="./image/dombai.jpg" alt="Фото Домбай">
+              <button class="card__del"></button>
               <div class="card__item">
                 <h2 class="card__title">Домбай</h2>
                 <button class="card__button"></button>
@@ -79,12 +85,26 @@
         <form class="popup__form" name="information">
           <button class="popup__close" type="button"></button>
           <h2 class="popup__title">Редактировать профиль</h2>
-          <input class="popup__input popup__input_type_name" type="text" placeholder="Имя" name="firstname" value="">
+          <input class="popup__input popup__input_type_firstname" type="text" placeholder="Имя" name="firstname" value="">
           <input class="popup__input popup__input_type_career" type="text" placeholder="Работа" name="career" value="">
           <button class="popup__submit" type="submit">Сохранить</button>
         </form>
       </div>
     </div>
+
+
+        <div class="popup popup__add-image">
+          <div class="popup__container popup__container-min">
+            <form class="popup__form popup__form-min" name="information">
+              <button class="popup__close popup__close-add-image" type="button"></button>
+              <h2 class="popup__title popup__title-min">Новое место</h2>
+              <input class="popup__input popup__input_type_name" type="text" placeholder="Название" name="firstname" value="">
+              <input class="popup__input popup__input_type_link" type="text" placeholder="Ссылка на картинку" name="career" value="">
+              <button class="popup__submit popup__submit-min" type="submit">Создать</button>
+            </form>
+          </div>
+        </div>
+
     <script src="./scripts/index.js" defer></script>
 </body>
 </html>

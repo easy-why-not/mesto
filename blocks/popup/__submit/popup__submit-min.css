@@ -2,5 +2,7 @@
   .popup__submit-min {
     margin: 36px 0 0;
     height: 40px;
+    font-size: 14px;
+    line-height: 17px;
   }
 }
