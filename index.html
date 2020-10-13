@@ -26,55 +26,7 @@
             <button class="profile__add-button"></button>
           </section>
           <section class="elements">
-            <div class="card">
-              <img class="card__image" src="./image/karachaevsk.jpg" alt="Фото Карачаевск">
-              <button class="card__del"></button>
-              <div class="card__item">
-                <h2 class="card__title">Карачаевск</h2>
-                <button class="card__button">
-                </button>
-              </div>
-            </div>
-            <div class="card">
-              <img class="card__image" src="./image/dombai.jpg" alt="Фото Домбай">
-              <button class="card__del"></button>
-              <div class="card__item">
-                <h2 class="card__title">Домбай</h2>
-                <button class="card__button"></button>
-              </div>
-            </div>
-            <div class="card">
-              <img class="card__image" src="./image/elbrus.jpg" alt="Фото Эльбрус">
-              <button class="card__del"></button>
-              <div class="card__item">
-                <h2 class="card__title">Эльбрус</h2>
-                <button class="card__button"></button>
-              </div>
-            </div>
-            <div class="card">
-              <img class="card__image" src="./image/elbrus.jpg" alt="Фото Эльбрус">
-              <button class="card__del"></button>
-              <div class="card__item">
-                <h2 class="card__title">Эльбрус</h2>
-                <button class="card__button"></button>
-              </div>
-            </div>
-            <div class="card">
-              <img class="card__image" src="./image/karachaevsk.jpg" alt="Фото Карачаевск">
-              <button class="card__del"></button>
-              <div class="card__item">
-                <h2 class="card__title">Карачаево-Черкесия</h2>
-                <button class="card__button"></button>
-              </div>
-            </div>
-            <div class="card">
-              <img class="card__image" src="./image/dombai.jpg" alt="Фото Домбай">
-              <button class="card__del"></button>
-              <div class="card__item">
-                <h2 class="card__title">Домбай</h2>
-                <button class="card__button"></button>
-              </div>
-            </div>
+
           </section>
         </main>
         <footer class="footer">
@@ -100,10 +52,29 @@
               <h2 class="popup__title popup__title-min">Новое место</h2>
               <input class="popup__input popup__input_type_name" type="text" placeholder="Название" name="firstname" value="">
               <input class="popup__input popup__input_type_link" type="text" placeholder="Ссылка на картинку" name="career" value="">
-              <button class="popup__submit popup__submit-min" type="submit">Создать</button>
+              <button class="popup__submit popup__submit-min popup__save-image-button" type="submit">Создать</button>
             </form>
           </div>
         </div>
+
+        <div class="popup">
+          <div class="popup__card">
+            <button class="popup__close popup__close-card" type="button"></button>
+            <img class="popup__image" src="" alt="Просмотр фото">
+            <h2 class="popup__text"></h2>
+          </div>
+        </div>
+
+        <template class="template">
+           <div class="card">
+              <img class="card__image" src="" alt="Фото">
+              <button class="card__del"></button>
+              <div class="card__item">
+                <h2 class="card__title"></h2>
+                <button class="card__button"></button>
+              </div>
+           </div>
+        </template>
 
     <script src="./scripts/index.js" defer></script>
 </body>
