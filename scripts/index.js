@@ -138,13 +138,6 @@ const getItems = (data) => {
   const popupImage = document.querySelector('.popup__image');
   const popupText = document.querySelector('.popup__text');
 
- // popupImage.src = data.link;
-  popupText.textContent = data.name;
-console.log(popupText)
-
-
-
-
   const templateImage = card.querySelector('.card__image');
 
 
@@ -186,17 +179,4 @@ const saveImage = () => {
 
 renderCards();
 saveImage();
-
-
-//Открытие картинок
-
-
-//
-
-
-
-
-
-
-
 
