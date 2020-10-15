@@ -110,9 +110,20 @@ const handlerDelete = (event) => {
 // Кнопка лайк
 const handlerLike = (event) => {
   event.target.closest('.card__button').classList.toggle('card__button-like');
-
 };
 
+
+const  popupOpenCard = document.querySelector('.popup__open-card');
+const  popupCloseCard = document.querySelector('.popup__close-card');
+
+
+const handlerOpenCard = function () {
+  popupOpenCard.classList.add('popup_is-opened');
+};
+
+const  handlerCloseCard = function (event) {
+  popupOpenCard.classList.remove('popup_is-opened');
+};
 
 
 const getItems = (data) => {
@@ -121,8 +132,32 @@ const getItems = (data) => {
   card.querySelector('.card__title').innerText = data.name;
   card.querySelector('.card__image').src = data.link;
 
+  const cardTitle = card.querySelector('.card__title');
+  console.log(cardTitle)
+
+  const popupImage = document.querySelector('.popup__image');
+  const popupText = document.querySelector('.popup__text');
+
+ // popupImage.src = data.link;
+  popupText.textContent = data.name;
+console.log(popupText)
+
+
+
+
+  const templateImage = card.querySelector('.card__image');
+
+
   const cardDel = card.querySelector('.card__del');
   const buttonLike = card.querySelector('.card__button');
+
+  popupCloseCard.addEventListener('click', handlerCloseCard);
+  templateImage.addEventListener('click', function () {
+    popupText.textContent = data.name;
+    popupImage.src = data.link;
+
+    handlerOpenCard();
+  });
 
   cardDel.addEventListener('click', handlerDelete);
 
@@ -136,9 +171,8 @@ const saveImage = () => {
   saveImageButton.addEventListener('click', (event) => {
     event.preventDefault()
     const item = getItems({
-      name: inputName.value
-
-     //link: inputLink.value
+      name: inputName.value,
+      link: inputLink.value
 
     })
     elements.prepend(item);
@@ -155,4 +189,14 @@ saveImage();
 
 
 //Открытие картинок
+
+
+//
+
+
+
+
+
+
+
 
