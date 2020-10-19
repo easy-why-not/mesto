@@ -26,7 +26,7 @@ const inputLink = document.querySelector('.popup__input_type_link');
 const template = document.querySelector('.template');
 
 // Находим форму в DOM
-let formElement = document.querySelector('form')
+const formElement = document.querySelector('form')
 
 // Универсальная функция открытия попапа
 const popupOpen = function (popup) {
