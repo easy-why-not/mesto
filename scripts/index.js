@@ -25,12 +25,13 @@ const inputName = document.querySelector('.popup__input_type_name');
 const inputLink = document.querySelector('.popup__input_type_link');
 const template = document.querySelector('.template');
 
+
 // Находим форму в DOM
 const formElement = document.querySelector('form')
 
 // Универсальная функция открытия попапа
-const popupOpen = function (popup) {
-  popup.classList.add('popup_is-opened');
+const popupOpen = function (popups) {
+  popups.classList.add('popup_is-opened');
 };
 
 // Обработчик «отправки» формы, хотя пока
@@ -60,10 +61,26 @@ const popupClose = function (popup) {
   popup.classList.remove('popup_is-opened');
 };
 
+// Закрытие по клику
+document.addEventListener('click', function (evt){
+  popupClose(evt.target);
+});
+
 // Обработчик закрытия попапа информации
 popupCloseButton.addEventListener('click', function (){
   popupClose(popup);
 });
+//закрытие попапа esc
+const escClose = function (evt, popup) {
+  if (evt.key === 'Escape') {
+  popupClose(popup);
+  }
+};
+//обработчик закрытия попапа  информации по esc
+document.addEventListener('keydown', function (evt){
+  escClose(evt, popup);
+});
+
 
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
@@ -73,6 +90,11 @@ formElement.addEventListener('submit', formSubmitHandler);
 // Обработчик закрытия попапа добавления изображения
 popupCloseAdd.addEventListener('click', function (){
   popupClose(popupAddImage);
+});
+
+// Обработчик закрытия попапа добавления изображения по esc
+document.addEventListener('keydown', function (evt){
+  escClose(evt, popupAddImage);
 });
 
 // Удаление карточки
@@ -145,6 +167,11 @@ const getItems = (data) => {
   // Закрываем попап изображения универсальной функцией
   popupCloseCard.addEventListener('click', function (){
     popupClose(popupOpenCard);
+  });
+
+  // Закрываем попап изображения по esc
+  document.addEventListener('keydown', function (evt){
+    escClose(evt, popupOpenCard);
   });
 
   cardDel.addEventListener('click', handlerDelete);
