@@ -85,9 +85,8 @@ const handlerOverlayClose = function (event) {
 
 //закрытие попапа esc
 const escClose = function (evt) {
-  const popupIsOpened = document.querySelector('.popup_is-opened');
-
   if (evt.key === 'Escape') {
+    const popupIsOpened = document.querySelector('.popup_is-opened');
     popupClose(popupIsOpened);
   }
 };
@@ -146,10 +145,15 @@ popupCloseAdd.addEventListener('click', function (){
   popupClose(popupAddImage);
 });
 
+// Обработчик закрытия попапа изображения
+popupCloseCard.addEventListener('click', function (){
+  popupClose(popupOpenCard);
+});
+
 // Логика
 
-const elementsPrepend = function (a) {
-  elements.prepend(...a);
+const elementsPrepend = function (card) {
+  elements.prepend(...card);
 };
 
 const renderCards = () =>  {
@@ -178,11 +182,6 @@ const getItems = (data) => {
     popupOpen(popupOpenCard);
   });
 
-  // Обработчик закрытия попапа изображения
-  popupCloseCard.addEventListener('click', function (){
-    popupClose(popupOpenCard);
-  });
-
   cardDel.addEventListener('click', handlerDelete);
 
   buttonLike.addEventListener('click', handlerLike);
@@ -197,7 +196,6 @@ const saveImage = () => {
     const item = getItems({
       name: inputName.value,
       link: inputLink.value
-
     })
     elementsPrepend([item]);
 
