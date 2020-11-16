@@ -1,3 +1,6 @@
+import { Card } from './Card.js';
+import { FormValidator } from './FormValidator.js';
+
 const popup = document.querySelector('.popup');
 const popupOpenButton = document.querySelector('.profile__edit-button');
 const popupCloseButton = document.querySelector('.popup__close');
@@ -24,9 +27,9 @@ const elements = document.querySelector('.elements');
 const saveImageButton = document.querySelector('.popup__save-image-button');
 const inputName = document.querySelector('.popup__input_type_name');
 const inputLink = document.querySelector('.popup__input_type_link');
-const template = document.querySelector('.template');
 
-// Находим форму в DOM
+
+// // Находим форму в DOM
 const formElement = document.querySelector('form');
 
 //Массив карточек
@@ -91,15 +94,6 @@ const escClose = function (evt) {
   }
 };
 
-// Удаление карточки
-const handlerDelete = (event) => {
-  event.target.closest('.card').remove();
-};
-
-// Кнопка лайк
-const handlerLike = (event) => {
-  event.target.closest('.card__button').classList.toggle('card__button-like');
-};
 
 // Обработчики
 
@@ -151,28 +145,24 @@ popupCloseCard.addEventListener('click', function (){
 });
 
 // Логика
-
+// Функция добавления крточки в начало
 const elementsPrepend = function (card) {
   elements.prepend(...card);
 };
-
+// Функция создания массива карточек которая получает карточку из getItems
 const renderCards = () =>  {
   const items = initialCards.map(element => getItems(element));
-
   elementsPrepend(items);
 };
 
+const template = '.template';
+
 const getItems = (data) => {
-  const card = template.content.cloneNode(true);
+  const listItem = new Card(data.name, data.link, template);
+  const cardElement = listItem.render();
 
-  const templateImage = card.querySelector('.card__image');
-  const cardDel = card.querySelector('.card__del');
-  const buttonLike = card.querySelector('.card__button');
-
-  card.querySelector('.card__title').innerText = data.name;
-  templateImage.src = data.link;
-  templateImage.alt = data.name;
-
+  // Открытие картинки
+  const templateImage = cardElement.querySelector('.card__image');
   templateImage.addEventListener('click', function () {
     popupText.textContent = data.name;
     popupImage.src = data.link;
@@ -182,12 +172,8 @@ const getItems = (data) => {
     popupOpen(popupOpenCard);
   });
 
-  cardDel.addEventListener('click', handlerDelete);
-
-  buttonLike.addEventListener('click', handlerLike);
-
-  return card;
-
+  // Возвращаем готовую карточку
+  return cardElement;
 };
 
 const saveImage = () => {
@@ -209,4 +195,23 @@ const saveImage = () => {
 
 renderCards();
 saveImage();
+
+
+// Валидация
+const popupForm = document.querySelector('.popup__form')
+const formElements = Array.from(document.querySelectorAll('.popup__form'));
+
+formElements.forEach(popupForm => {
+  const formValidator = new FormValidator({
+    formSelector: 'form',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__submit',
+    inactiveButtonClass: 'popup__submit-invalid',
+    inputErrorClass: 'popup__input_state-invalid',
+    errorClass: 'error'
+  }, popupForm);
+
+  formValidator.enableValidation();
+});
+
 
