@@ -23,8 +23,8 @@ export class FormValidator {
       this._showError(input);
     }
   }
-  _toggleButtonState(input) {
-    if (input.checkValidity()) {
+  _toggleButtonState() {
+    if (this._popupForm .checkValidity()) {
       this._buttonElement.classList.remove(this._settings.inactiveButtonClass);
       this._buttonElement.disabled = false;
     }else {
