@@ -1,4 +1,4 @@
-import { popupOpen, popupClose, popupText, popupImage, popupOpenCard, popupCloseCard } from './utils.js'
+import { popupOpen, popupText, popupImage, popupOpenCard } from './utils.js'
 
 export class Card {
   constructor(name, link, templateSelector) {
@@ -21,11 +21,6 @@ export class Card {
     popupImage.src = this._link;
     popupImage.alt = this._name;
     popupOpen(popupOpenCard);
-  }
-  // Закрытие попапа
-  _handlerClosePopupImage() {
-    popupClose(popupOpenCard);
-
   }
 
   render () {
@@ -50,7 +45,6 @@ export class Card {
 
 
     this._cardImage.addEventListener('click', () => this._handlerOpenPopupImage())
-    popupCloseCard.addEventListener('click', () => this._handlerClosePopupImage())
     return this._content;
   }
 }

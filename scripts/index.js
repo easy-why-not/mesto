@@ -1,6 +1,6 @@
 import { Card } from './Card.js';
 import { FormValidator } from './FormValidator.js';
-import { popupOpen, popupClose, handlerOverlayClose, popupOpenCard } from './utils.js'
+import { popupOpen, popupClose, handlerOverlayClose, popupOpenCard, popupCloseCard } from './utils.js'
 
 const popupInfo = document.querySelector('.popup__info');
 const popupOpenButton = document.querySelector('.profile__edit-button');
@@ -19,13 +19,12 @@ const popupFormAddImage = document.querySelector('.popup__form_add-image')
 
 // Переменные template блока
 const elements = document.querySelector('.elements');
-// const saveImageButton = document.querySelector('.popup__save-image-button');
 const inputName = document.querySelector('.popup__input_type_name');
 const inputLink = document.querySelector('.popup__input_type_link');
 
 
 // // Находим форму в DOM
-const formElementInfo = document.querySelector('form');
+const formElementInfo = document.querySelector('.popup__form-info');
 
 //Массив карточек
 const initialCards = [
@@ -56,6 +55,10 @@ const initialCards = [
 ];
 
 // Обработчики
+// Обработчик закрытия попапа картинки
+popupCloseCard.addEventListener('click', function () {
+  popupClose(popupOpenCard);
+});
 
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
