@@ -13,7 +13,7 @@ export default class UserInfo {
   }
   // добавляет введенные данные на страницу
   setUserInfo(profileObject) {
-    this._name.textContent = profileObject.name;
-    this._career.textContent = profileObject.text;
+    this._name.textContent = profileObject.firstname;
+    this._career.textContent = profileObject.career;
   }
 }

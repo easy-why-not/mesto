@@ -23,17 +23,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27663896-866d-47c4-8006-c9d5a2eb232a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/scripts/Popup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/PopupWithForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/PopupWithImage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/Section.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/UserInfo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/Card.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Card.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/FormValidator.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/FormValidator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Card.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Card.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/FormValidator.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/FormValidator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Popup.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Popup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/PopupWithForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/PopupWithForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/PopupWithImage.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/PopupWithImage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Section.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Section.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/UserInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/UserInfo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/utils.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,6 +83,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/blocks/popup/__submit" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/components" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/mesto/index.html" useBuiltInWebServerPort="true">
@@ -130,7 +132,7 @@
       <workItem from="1606760426979" duration="120000" />
       <workItem from="1606760564845" duration="17613000" />
       <workItem from="1606936028916" duration="209000" />
-      <workItem from="1606936733886" duration="14364000" />
+      <workItem from="1606936733886" duration="35202000" />
     </task>
     <servers />
   </component>

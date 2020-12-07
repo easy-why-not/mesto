@@ -1,6 +1,6 @@
 export default class Section {
   constructor({initialCards, renderer}, containerSelector) {
-    this._initialCards = initialCards;
+    this._initialCards = initialCards.reverse();
     this.renderer = renderer; // функция которую будем передавать параметром в создании экземпляра класса
     this._container = document.querySelector(containerSelector);
   }
@@ -12,6 +12,6 @@ export default class Section {
   }
   // метод для отрисовки карточки и добавление карточки в начало списка
   renderCards(items) {
-    this._container.append(items)
-  };
+    this._container.prepend(items)
+  }
 }

@@ -2,7 +2,7 @@ export default class FormValidator {
   constructor(settings, popupForm) {
     this._popupForm = popupForm;
     this._settings = settings;
-    this._input = this._popupForm.querySelector(this._settings.inputSelector);
+    // this._input = this._popupForm.querySelector(this._settings.inputSelector);
     this._buttonElement = this._popupForm.querySelector(this._settings.submitButtonSelector);
     this._inputElements = Array.from(this._popupForm.querySelectorAll(this._settings.inputSelector));
   }
@@ -36,7 +36,7 @@ export default class FormValidator {
       this._buttonElement.disabled = true;
     }
   }
-  //
+
   _setEventListeners() {
     this._inputElements.forEach((input) => {
       input.addEventListener('input', () => {

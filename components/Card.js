@@ -1,14 +1,9 @@
-import PopupWithImage from './PopupWithImage.js';
 export default class Card {
   constructor(name, link, templateSelector, handleCardClick) {
     this._name = name;
     this._link = link;
     this._template = document.querySelector(templateSelector).content.querySelector('.card'); //разметка карточки
-
-  }
-  //открытие карточки по клику
-  handleCardClick() {
-    open(data)
+    this.handleCardClick = handleCardClick;
   }
 
   // Метод удаление карточки
@@ -39,6 +34,9 @@ export default class Card {
 
     //Обработчик кнопки лайк
     this._cardButton.addEventListener('click', () => this._handlerLike());
+
+    //Обработчик открытия картинки
+    this._cardImage.addEventListener('click', () => this.handleCardClick({name: this._name, link: this._link, alt: this._name}));
 
     //Возвращаем готовую клонированную карточку
     return this._content;
