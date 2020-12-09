@@ -27,7 +27,7 @@ export default class FormValidator {
     }
   }
   // делаем кнопку не активной если форма не валидна
-  _toggleButtonState() {
+  toggleButtonState() {
     if (this._popupForm.checkValidity()) {
       this._buttonElement.classList.remove(this._settings.inactiveButtonClass);
       this._buttonElement.disabled = false;
@@ -41,10 +41,10 @@ export default class FormValidator {
     this._inputElements.forEach((input) => {
       input.addEventListener('input', () => {
         this._checkInputValidity(input);
-        this._toggleButtonState(input);
+        this.toggleButtonState(input);
       });
     });
-    this._toggleButtonState(this._popupForm);
+    this.toggleButtonState(this._popupForm);
   }
 
   enableValidation() {

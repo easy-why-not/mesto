@@ -34,13 +34,17 @@ export const initialCards = [
   }
 ];
 
+function newCardRender (item) {
+  return new Card(item.name, item.link, template, (data) => popupWithImage.open(data));
+}
+
 // Рендеринг карточек из массива
 const template = '.template';
 const elementsContainer = '.elements';
 const section = new Section({
   initialCards: initialCards,
   renderer: (item) => {
-    const listItem = new Card(item.name, item.link, template, (data) => popupWithImage.open(data));
+    const listItem = newCardRender(item);
     // Возвращаем готовую карточку
     const cardListItem = listItem.render();
     section.renderCards(cardListItem);
@@ -51,9 +55,8 @@ section.rendererCards();
 //Попап добавления карточки
 const popupAddImage = document.querySelector('.popup__add-image');
 const popupAdd = new PopupWithForm(popupAddImage,
-  (data) => {
-    console.log()
-    const card = new Card(data.name, data.link, template, (data) => popupWithImage.open(data));
+  (item) => {
+    const card = newCardRender(item);
     const cardAddImage = card.render();
     section.renderCards(cardAddImage);
   }
@@ -61,7 +64,10 @@ const popupAdd = new PopupWithForm(popupAddImage,
 
 //попап добавления картинок
 const popupOpenAddImageButton = document.querySelector('.profile__add-button');
-popupOpenAddImageButton.addEventListener('click', () => popupAdd.open());
+popupOpenAddImageButton.addEventListener('click', () => {
+  addCardFormValidator.toggleButtonState();
+  popupAdd.open()
+});
 //Обработчик сохранения картинок
 popupAdd.setEventListeners();
 
@@ -85,9 +91,11 @@ const jobInput = document.querySelector('.popup__input_type_career');
 
 //Обработчикик открытия попапа  информации
 const popupOpenButton = document.querySelector('.profile__edit-button');
-popupOpenButton.addEventListener('click', function () {
-  nameInput.value = userInfo.getUserInfo().name;
-  jobInput.value = userInfo.getUserInfo().text;
+popupOpenButton.addEventListener('click', () => {
+  profileFormValidator.toggleButtonState();
+  const userInfoObj = userInfo.getUserInfo();
+  nameInput.value = userInfoObj.name;
+  jobInput.value = userInfoObj.text;
   popupUserInfo.open();
 });
 
@@ -99,10 +107,14 @@ popupWithImage.setEventListeners();
 
 
 // Валидация
-const formElements = Array.from(document.querySelectorAll('.popup__form'));
 
-formElements.forEach(popupForm => {
-  const formValidator = new FormValidator({
+//выбираем отдельно формы
+const profileForm = document.querySelector('.popup__form-info');
+const addCardForm = document.querySelector('.popup__form_add-image');
+
+//универсальная функция создания экзепляра класса FormValidator
+function createFormValidator (popupForm) {
+  return  new FormValidator({
     formSelector: 'form',
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__submit',
@@ -110,8 +122,30 @@ formElements.forEach(popupForm => {
     inputErrorClass: 'popup__input_state-invalid',
     errorClass: 'error'
   }, popupForm);
+}
+// Создаем FormValidator для каждой формы
+const profileFormValidator = createFormValidator(profileForm);
+const addCardFormValidator = createFormValidator(addCardForm);
+//Валидируем их
+profileFormValidator.enableValidation();
+addCardFormValidator.enableValidation();
 
-  formValidator.enableValidation();
-});
+
+
+
+// const formElements = Array.from(document.querySelectorAll('.popup__form'));
+//
+// formElements.forEach(popupForm => {
+//   const formValidator = new FormValidator({
+//     formSelector: 'form',
+//     inputSelector: '.popup__input',
+//     submitButtonSelector: '.popup__submit',
+//     inactiveButtonClass: 'popup__submit-invalid',
+//     inputErrorClass: 'popup__input_state-invalid',
+//     errorClass: 'error'
+//   }, popupForm);
+//
+//   formValidator.enableValidation();
+// });
 
 

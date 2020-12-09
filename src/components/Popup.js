@@ -32,7 +32,6 @@ export default class Popup {
 
   setEventListeners() {
     this._popup.addEventListener('click', this._handlerOverlayClose.bind(this)); //обработчик клика по оверлею
-    document.addEventListener('keydown', this._handleEscClose.bind(this)); // обработчик нажатия на esc
     this._popupClose.addEventListener('click', this.close.bind(this)); // обработчик клика по крестику
   }
 }
