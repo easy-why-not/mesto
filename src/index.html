@@ -13,13 +13,16 @@
 <main class="content">
   <section class="profile">
     <div class="profile__info">
-      <img class="profile__avatar" src="<%=require('./image/Avatar.jpg')%>" alt="Аватарка">
+      <div class="profile__avatar">
+        <button class="profile__edit-avatar"></button>
+        <img class="profile__avatar-image" src="<%=require('./image/Avatar.jpg')%>" alt="Аватарка">
+      </div>
       <div class="profile__text">
         <div class="profile__block">
-          <h1 class="profile__info-name">Жак-Ив Кусто</h1>
+          <h1 class="profile__info-name"></h1>
           <button class="profile__edit-button"></button>
         </div>
-        <p class="profile__info-text">Исследователь океана</p>
+        <p class="profile__info-text"></p>
       </div>
     </div>
     <button class="profile__add-button"></button>
@@ -74,14 +77,44 @@
   </div>
 </div>
 
+<!-- Попап подтверждения удаления -->
+<div class="popup popup__with-submit">
+  <div class="popup__container popup__container-min popup__container-with-submit">
+    <form class="popup__form popup__form-min popup__form-with-submit">
+      <button class="popup__close popup__close-with-submit" type="button"></button>
+      <h2 class="popup__title popup__title-with-submit">Вы уверены?</h2>
+      <button class="popup__submit popup__submit-min popup__submit-with-submit" type="submit">Да</button>
+    </form>
+  </div>
+</div>
+
+<!-- Попап изменения аватара -->
+<div class="popup popup__avatar-edit">
+  <div class="popup__container popup__container-min popup__container-avatar-edit">
+    <form class="popup__form popup__form-min popup__form-avatar-edit">
+      <button class="popup__close popup__avatar-edit" type="button"></button>
+      <h2 class="popup__title popup__title-avatar-edit">Обновить аватар</h2>
+      <input type="url" class="popup__input popup__input_avatar-edit" id="link-avatar" required placeholder="Ссылка на картинку"
+             name="link" value="">
+      <button class="popup__submit popup__submit-min popup__submit-avatar-edit" type="submit">Сохранить</button>
+    </form>
+  </div>
+</div>
+
+
+
 <!-- Попап добавления карточек -->
 <template class="template">
   <li class="card">
     <img class="card__image" src="" alt="Фото">
     <button class="card__del"></button>
-    <div class="card__item">
+    <div class="card__items">
       <h2 class="card__title"></h2>
-      <button class="card__button"></button>
+      <div class="card__item">
+        <button class="card__button"></button>
+        <p class="card__number-likes"></p>
+      </div>
+
     </div>
   </li>
 </template>

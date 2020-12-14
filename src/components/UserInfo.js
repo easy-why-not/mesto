@@ -7,13 +7,13 @@ export default class UserInfo {
   getUserInfo() {
     const objUserInfo = {};
     objUserInfo.name= this._name.textContent;
-    objUserInfo.text = this._career.textContent;
+    objUserInfo.about = this._career.textContent;
     return objUserInfo;
 
   }
   // добавляет введенные данные на страницу
   setUserInfo(profileObject) {
-    this._name.textContent = profileObject.firstname;
-    this._career.textContent = profileObject.career;
+    this._name.textContent = profileObject.name;
+    this._career.textContent = profileObject.about;
   }
 }

@@ -9,6 +9,7 @@ module.exports = {
     filename: 'main.js', publicPath: '',
     path: path.resolve(__dirname, 'dist'),
   },
+  devtool: 'eval',
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
