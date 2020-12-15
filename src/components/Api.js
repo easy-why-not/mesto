@@ -81,7 +81,7 @@ export default class Api {
 
 
   likeCard(likeId) {
-    return fetch(`https://mesto.nomoreparties.co/v1/cohortId/cards/likes/${likeId}`, {
+    return fetch(`https://mesto.nomoreparties.co/v1/cohort-18/cards/likes/${likeId}`, {
       method: 'PUT',
       headers: this._headers,
     }).then((res) => {
@@ -95,8 +95,8 @@ export default class Api {
 
 
   dislikeCard(likeId) {
-    return fetch(`https://mesto.nomoreparties.co/v1/cohortId/cards/likes/${likeId}`, {
-      method: 'DELITE',
+    return fetch(`https://mesto.nomoreparties.co/v1/cohort-18/cards/likes/${likeId}`, {
+      method: 'DELETE',
       headers: this._headers,
     }).then((res) => {
       if(res.ok) {

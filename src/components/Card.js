@@ -3,7 +3,6 @@ export default class Card {
     this._name = name;
     this._link = link;
     this._likes = likes;
-    console.log(this._likes)
     this._ownerId = ownerId;
     this._userId = userId;
     this._cardId = cardId;
@@ -20,28 +19,16 @@ export default class Card {
   }
 
 
-  // Метод добавления и удаления лайка
-  // _handlerLike() {
-  //   if (this._cardButton.classList.contains('card__button-like')) {
-  //     this._likes.length ++;
-  //     this._content.
-  //     querySelector('.card__number-likes').innerText =this._likes.length;
-  //   }else {
-  //     this._likes.length --;
-  //     this._content.
-  //     querySelector('.card__number-likes').innerText =this._likes.length;
-  //   }
-  // }
-
   setLikes(likes) {
     this._likes = likes;
-    console.log(this._likes)
-    this._content.
-    querySelector('.card__number-likes').textContent = this._likes.length;
     if(this.isLiked()) {
       this._cardButton.classList.add('card__button-like');
+      this._content.
+      querySelector('.card__number-likes').textContent = this._likes.length;
     } else  {
       this._cardButton.classList.remove('card__button-like');
+      this._content.
+      querySelector('.card__number-likes').textContent = this._likes.length;
     }
   }
 
@@ -57,29 +44,29 @@ export default class Card {
   render() {
     this._content = this._template.cloneNode(true); // клонируем шаблон для карточки
 
+
     if (this._userId !== this._ownerId) {
       this._content.querySelector('.card__del').classList.remove('card__del-active')
     }else {
       this._content.querySelector('.card__del').classList.add('card__del-active')
     }
-
     //находим кнопку лайк
     this._cardButton = this._content.querySelector('.card__button'); // кнопка лайк в этом шаблоне
 
+
+    //выводим лайки
+    this._content.
+    querySelector('.card__number-likes').textContent = this._likes.length;
+
+    this.setLikes(this._likes);
+
     this._cardButton.addEventListener('click', () => this.handleLikeClick());
-
-
-
-
 
     this._cardImage = this._content.querySelector('.card__image'); // картинка в шаблоне
     this._content
       .querySelector('.card__title').innerText = this._name; //передаем клонированной карточке значение названия из объекта
     this._cardImage.src = this._link; // передаем клонированной карточке ссылку из объекта
     this._cardImage.alt = this._name; // передаем альт
-    //выводим лайки
-    this._content.
-      querySelector('.card__number-likes').innerText =this._likes.length;
 
     //Обработчик удаления карточки
     this._content

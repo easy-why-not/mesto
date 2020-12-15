@@ -94,12 +94,14 @@ function newCardRender (item) {
       if (card.isLiked()) {
         api.dislikeCard(item._id)
           .then((res) => {
-            card.setLikes(res);
+            console.log(res.likes)
+            card.setLikes(res.likes);
           })
       } else {
         api.likeCard(item._id)
-          .then(() => {
-            card.setLikes();
+          .then((res) => {
+            console.log(res.likes)
+            card.setLikes(res.likes);
           })
       }
     });
