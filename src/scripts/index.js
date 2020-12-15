@@ -97,12 +97,14 @@ function newCardRender (item) {
             console.log(res.likes)
             card.setLikes(res.likes);
           })
+          .catch((err) => alert(err));
       } else {
         api.likeCard(item._id)
           .then((res) => {
             console.log(res.likes)
             card.setLikes(res.likes);
           })
+          .catch((err) => alert(err));
       }
     });
   return card;
