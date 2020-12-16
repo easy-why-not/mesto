@@ -107,5 +107,22 @@ export default class Api {
     })
   }
 
+  addUserAvatar (data) {
+    // console.log(data)
+    return fetch('https://mesto.nomoreparties.co/v1/cohort-18/users/me/avatar ', {
+      method: 'PATCH',
+      headers: this._headers,
+      body: JSON.stringify({
+        avatar: data.link
+      })
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }else {
+        return Promise.reject(`Ошибка: ${res.status}`);
+      }
+    })
+  }
+
 }
 

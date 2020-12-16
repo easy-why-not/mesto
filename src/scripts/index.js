@@ -7,6 +7,7 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import Api from '../components/Api.js';
 import PopupWithSubmit from '../components/PopupWithSubmit.js';
 import '../pages/index.css';
+import { renderLoading } from '../components/utils.js'
 
 // 1.подключение к серверу
 const api = new Api({
@@ -18,12 +19,14 @@ const api = new Api({
 });
 
 
-// попап информация о пользователе
+
+
 const userInfo = new UserInfo({
   profileName: '.profile__info-name',
-  profileCareer: '.profile__info-text'
+  profileCareer: '.profile__info-text',
+  profileAvatar: '.profile__avatar-image'
 });
-
+// console.log(userInfo)
 
 // //Промис элл
 let userId = null;
@@ -36,7 +39,6 @@ const promiseAll = [getAllCardsConst, getUserIdConst];
 Promise.all(promiseAll)
   .then(([allCards, userData]) => {
     userId = userData._id;
-
     section.rendererCards(allCards);
 
     userInfo.setUserInfo(userData);
@@ -48,13 +50,38 @@ Promise.all(promiseAll)
 // Попап информации о пользовате
 const popupInfo = document.querySelector('.popup__info');
 const popupUserInfo = new PopupWithForm(popupInfo,
-  (profileObject) => {
-    api.addUserApi(profileObject).then((data) => {
+  (data) => {
+    renderLoading(true);
+    api.addUserApi(data).then((data) => {
       userInfo.setUserInfo(data);
-    }).catch((err) => alert(err));
-
+    }).catch((err) => alert(err))
+      .finally(() => {
+        renderLoading(false);
+        popupUserInfo.close();
+      })
   }
 );
+
+const popupAvatarEdit = document.querySelector('.popup__avatar-edit');
+const popupAddButton = document.querySelector('.profile__edit-avatar')
+popupAddButton.addEventListener('click', () => {
+  popupAddAvatar.open();
+  popupAddAvatar.setEventListeners();
+  avatarAddFormValidator.toggleButtonState();
+})
+//Изменение аватара
+const popupAddAvatar = new PopupWithForm(popupAvatarEdit,
+  (data) => {
+    renderLoading(true);
+    api.addUserAvatar(data)
+      .then((res) => {
+        userInfo.setUserImage(res.avatar);
+      }).catch((err) => alert(err))
+      .finally(() => {
+        renderLoading(false);
+        popupAddAvatar.close();
+      })
+  })
 
 // Обработчикик открытия попапа  информации
 const popupOpenButton = document.querySelector('.profile__edit-button');
@@ -83,25 +110,21 @@ function newCardRender (item) {
       api.deleteCards(item._id)
         .then(() => {
           card.handlerDelete();
-
-        }).catch((err) => alert(err));
-
+        })
+        .catch((err) => alert(err));
     });
     popupWithSubmit.open();
-
     },
     () => {
       if (card.isLiked()) {
         api.dislikeCard(item._id)
           .then((res) => {
-            console.log(res.likes)
             card.setLikes(res.likes);
           })
           .catch((err) => alert(err));
       } else {
         api.likeCard(item._id)
           .then((res) => {
-            console.log(res.likes)
             card.setLikes(res.likes);
           })
           .catch((err) => alert(err));
@@ -119,27 +142,28 @@ const section = new Section( (item) => {
   const cardListItem = listItem.render();
   section.renderCards(cardListItem);
 }, elementsContainer)
-//
 
-
-
-//
-//
-//
-//
 //добавление новой карточки
 const popupAddImage = document.querySelector('.popup__add-image');
 const popupAdd = new PopupWithForm(popupAddImage,
   (data) => {
+    renderLoading(true);
     api.addNewCards(data)
       .then((item) => {
         const card = newCardRender(item);
         const cardAddImage = card.render();
         section.renderCards(cardAddImage);
     })
-      .catch((err) => alert(err));
+      .catch((err) => alert(err))
+      .finally(() => {
+        renderLoading(false);
+        popupAdd.close();
+      })
   }
 );
+
+
+
 
 
 // //попап добавления картинок
@@ -171,6 +195,7 @@ popupWithImage.setEventListeners();
 //выбираем отдельно формы
 const profileForm = document.querySelector('.popup__form-info');
 const addCardForm = document.querySelector('.popup__form_add-image');
+const avatarAddForm = document.querySelector('.popup__form-avatar-edit')
 
 //универсальная функция создания экзепляра класса FormValidator
 function createFormValidator (popupForm) {
@@ -186,9 +211,11 @@ function createFormValidator (popupForm) {
 // Создаем FormValidator для каждой формы
 const profileFormValidator = createFormValidator(profileForm);
 const addCardFormValidator = createFormValidator(addCardForm);
+const avatarAddFormValidator = createFormValidator(avatarAddForm);
 //Валидируем их
 profileFormValidator.enableValidation();
 addCardFormValidator.enableValidation();
+avatarAddFormValidator.enableValidation();
 
 
 

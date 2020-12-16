@@ -14,8 +14,10 @@
   <section class="profile">
     <div class="profile__info">
       <div class="profile__avatar">
-        <button class="profile__edit-avatar"></button>
-        <img class="profile__avatar-image" src="<%=require('./image/Avatar.jpg')%>" alt="Аватарка">
+        <img class="profile__avatar-image" src="" alt="Аватарка">
+        <a class="profile__overlay" href="#">
+          <button class="profile__edit-avatar"></button>
+        </a>
       </div>
       <div class="profile__text">
         <div class="profile__block">
@@ -92,10 +94,11 @@
 <div class="popup popup__avatar-edit">
   <div class="popup__container popup__container-min popup__container-avatar-edit">
     <form class="popup__form popup__form-min popup__form-avatar-edit">
-      <button class="popup__close popup__avatar-edit" type="button"></button>
+      <button class="popup__close popup__close-avatar-edit" type="button"></button>
       <h2 class="popup__title popup__title-avatar-edit">Обновить аватар</h2>
       <input type="url" class="popup__input popup__input_avatar-edit" id="link-avatar" required placeholder="Ссылка на картинку"
              name="link" value="">
+      <span class="error" id="link-avatar-error"></span>
       <button class="popup__submit popup__submit-min popup__submit-avatar-edit" type="submit">Сохранить</button>
     </form>
   </div>

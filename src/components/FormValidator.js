@@ -16,6 +16,7 @@ export default class FormValidator {
   _hideError(input) {
     this._errorElement = this._popupForm.querySelector(`#${input.id}-${this._settings.errorClass}`); //получаем значение error из объекта
     this._errorElement.textContent = ''; // передаем пустое значение ошибки
+    // console.log(this._errorElement)
     input.classList.remove(this._settings.inputErrorClass); // удаляем класс ошибки
   }
   //проверяем валидность инпутов
