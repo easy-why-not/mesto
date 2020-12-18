@@ -4,22 +4,27 @@ export default class UserInfo {
     this._career = document.querySelector(profileCareer);
     this._avatar = document.querySelector(profileAvatar);
   }
+
   // подставляет данные в попап информации
   getUserInfo() {
     const objUserInfo = {};
     objUserInfo.name= this._name.textContent;
     objUserInfo.about = this._career.textContent;
     return objUserInfo;
-
   }
+
   // добавляет введенные данные на страницу
   setUserInfo(profileObject) {
-    this._name.textContent = profileObject.name;
-    this._career.textContent = profileObject.about;
-    this._avatar.src = profileObject.avatar
-  }
+    if (profileObject.name) {
+      this._name.textContent = profileObject.name;
+    }
 
-  setUserImage(profileObject) {
-    this._avatar.src = profileObject;
+    if (profileObject.about) {
+      this._career.textContent = profileObject.about;
+    }
+
+    if(profileObject.avatar) {
+      this._avatar.src = profileObject.avatar;
+    }
   }
 }

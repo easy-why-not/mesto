@@ -5,6 +5,7 @@ export default class FormValidator {
     // this._input = this._popupForm.querySelector(this._settings.inputSelector);
     this._buttonElement = this._popupForm.querySelector(this._settings.submitButtonSelector);
     this._inputElements = Array.from(this._popupForm.querySelectorAll(this._settings.inputSelector));
+    // console.log(this._inputElements)
   }
   // показываем ошибку
   _showError(input) {
@@ -16,7 +17,6 @@ export default class FormValidator {
   _hideError(input) {
     this._errorElement = this._popupForm.querySelector(`#${input.id}-${this._settings.errorClass}`); //получаем значение error из объекта
     this._errorElement.textContent = ''; // передаем пустое значение ошибки
-    // console.log(this._errorElement)
     input.classList.remove(this._settings.inputErrorClass); // удаляем класс ошибки
   }
   //проверяем валидность инпутов
@@ -53,5 +53,12 @@ export default class FormValidator {
       evt.preventDefault();
     });
     this._setEventListeners();
+
+  }
+
+  resetError() {
+    this._inputElements.forEach((item) => {
+      this._hideError(item)
+    })
   }
 }

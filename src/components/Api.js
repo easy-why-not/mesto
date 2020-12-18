@@ -34,7 +34,6 @@ export default class Api {
     })
   }
 
-
   getAllCards() {
     return fetch(this._url,{
       method: 'GET',
@@ -47,7 +46,6 @@ export default class Api {
       }
     })
   }
-
 
   addNewCards(data) {
     return fetch(this._url,{
@@ -79,7 +77,6 @@ export default class Api {
     })
   }
 
-
   likeCard(likeId) {
     return fetch(`https://mesto.nomoreparties.co/v1/cohort-18/cards/likes/${likeId}`, {
       method: 'PUT',
@@ -92,7 +89,6 @@ export default class Api {
       }
     })
   }
-
 
   dislikeCard(likeId) {
     return fetch(`https://mesto.nomoreparties.co/v1/cohort-18/cards/likes/${likeId}`, {
@@ -108,7 +104,6 @@ export default class Api {
   }
 
   addUserAvatar (data) {
-    // console.log(data)
     return fetch('https://mesto.nomoreparties.co/v1/cohort-18/users/me/avatar ', {
       method: 'PATCH',
       headers: this._headers,
@@ -123,6 +118,5 @@ export default class Api {
       }
     })
   }
-
 }
 
